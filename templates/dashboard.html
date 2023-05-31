@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Dashboard</h1>
+<a class="nav-link" href="{% url 'home' %}">Home</a>
+<center>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>email</th>
+        <th>Link</th>
+    </tr>
+    {% for i in customers %}
+    <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.phone}}</td>
+        <td>{{i.email}}</td>
+        <td><a href="{% url 'customers' i.id %}">Click</a></td>
+    </tr>
+{% endfor %}
+</table>
+</center>
+{% endblock %}
